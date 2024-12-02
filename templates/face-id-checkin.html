@@ -1,0 +1,20 @@
+{% extends 'face-id-base.html' %}
+{% load static %}
+
+{% block scripts %}
+    <script src="{% static 'js/face-id.js' %}" defer></script>
+{% endblock scripts %}
+
+{% block content %}
+    <h1 class="text-center mb-3">KFC Face ID Check-in 🍗</h1>
+    <div class="text-center">
+        <video autoplay="true" id="video-element"></video>
+    </div>
+
+    <div id="img-element"></div>
+
+    <div class="text-center mt-3">
+        <button class="btn btn-primary" id="capture-btn">Take photo 📸</button>
+        <button class="btn btn-info" id="reload-btn">Reload 🔄</button>
+    </div> 
+{% endblock content %}

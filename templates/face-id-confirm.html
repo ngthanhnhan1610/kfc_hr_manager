@@ -1,0 +1,23 @@
+{% extends 'face-id-base.html' %}
+
+{% block content %}
+<h1 class="text-center">Checkin/Checkout successfully as : {{request.user.username}} 🎉</h1>
+</br>
+</br>
+
+{% if curr_attendance %}
+    {% for attendance in curr_attendance %}
+        <h2>📅 Date: {{ attendance.today }}</h2>
+        {% if attendance.check_in_time %}
+            <h3>⏰ Check-in time: {{ attendance.check_in_time }}</h3>
+        {% endif %}
+        {% if attendance.check_out_time %}
+            <h3>⏰ Check-out time: {{ attendance.check_out_time }}</h3>
+        {% endif %}
+        <br>
+    {% endfor %}
+{% endif %}
+
+<a href="{% url 'face-id-return' %}" class="btn btn-danger mt-5">Back ⏪</a>
+
+{% endblock content %}
